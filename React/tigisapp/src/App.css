@@ -1,0 +1,594 @@
+
+.App {
+  text-align: center;
+}
+
+body{
+  width: 100vw;
+  overflow-x: hidden;
+}
+.header{
+  display: flex;
+  width: 100vw;
+  height:10vh;
+  background-color: pink;
+  justify-content: space-around;
+  align-items: center;
+  position:sticky;
+  top:0;
+}
+
+.logo a{
+  font-family: 'Bowlby One SC', cursive;
+  color:goldenrod;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.check_p{
+  width:20%
+}
+a{
+  color: darkslategrey;
+}
+button:hover{
+  cursor: pointer;
+  color: darkviolet;
+}
+
+/* styling for MenuModal */
+
+.menu_container{
+
+  width:100vw;
+  height:100vh;
+ position: absolute;
+ top:100%;
+ 
+}
+.modal_inner_container{
+  height: 100%;
+  width: 50vw;
+  background-color:rgb(0,0,0,.9);
+  
+  display:flex;
+  flex-direction: column;
+ animation-name: slideOut;
+ 
+ animation-duration: 1.5s;
+}
+
+
+
+/* animaltion for inner container */
+@keyframes slideOut{
+  from{transform: translateX(-500px);}
+  to{transform: translateX(0);}
+}
+
+@keyframes remove{
+  from{transform:translateX(0)}
+  to{transform:translateX(-500px)}
+}
+
+
+
+.menu_items{
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+
+}
+
+.menu_items p{
+  display: block;
+  padding:2rem;
+  color:darkorange;
+}
+
+
+.menu_items a{
+text-decoration: none;
+}
+
+.menu_items a:hover{
+  border:1px solid gold;
+}
+
+
+
+
+.modal_inner_container button{
+  background-color:rgb(0,0,0,.2);
+  color: darkorange;
+  border: none;
+}
+
+
+
+
+/* styling images in home page */
+.home_div{
+  background-color: palevioletred;
+}
+.home_div img{
+  width:100%;
+}
+
+.home_div p{
+ font-family: 'Bad Script', cursive;
+ 
+ font-size: 50px;
+}
+
+
+.service_pic2{
+  width: 100%;
+  height:100vh;
+  background-image: url('./image/blackgirl.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: 5s;
+
+  animation: morph 30s ease-in-out 0s infinite alternate-reverse forwards;
+
+}
+
+@keyframes morph{
+  0%{background-image: url('./image/blackgirl.jpg');}
+  50%{background-image: url('./image/Brazillian3.jpg');}
+  100%{background-image: url('./image/Brazillian2.jpg');}
+
+}
+
+
+.main_background_pic{
+  width: 100%;
+  height: 100vh;
+  background-image:url('./image/blackgirl.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+ 
+}
+.browse a{
+  font-family: 'Bowlby One SC', cursive;
+}
+.browse{
+  
+  font-weight: bold;
+  font-size: 2rem;
+  display: inline-block;
+  color: lightpink;
+  padding-top:20%;
+  margin-top: 0;
+
+}
+.browse_link{
+  text-decoration: none;
+  color: goldenrod ;
+}
+/* styling modal button */
+.menu_button{
+  height: 2rem;
+  background-color:rgb(0,0,0,.2);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.menu_button:hover{
+  cursor: pointer;
+  border: 1px solid gold;
+ 
+}
+
+
+/* styling header */
+.header p{
+  margin:0
+}
+
+.header_cart_div{
+  width: 5rem;
+  height:100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+  position: relative;
+}
+
+.header_cart{
+  height:70%;
+  width:50%;
+  
+}
+.header_cart_items{
+  position: absolute;
+  top:.5rem;
+  left: 2.5rem;
+  color:black;
+  background-color:lightpink;
+  border-radius: 40%;
+  
+}
+.header_menu_button:hover{
+  transition: 2s;
+  transform:rotate(360deg);
+}
+
+
+/* styling the about component */
+.about_container{
+  display:flex;
+  flex-direction: row;
+  height: 90vh;
+  width:100%;
+  font-family: 'Marvel', sans-serif;
+  background-color:black;
+  font-size: 1.3em;
+
+}
+.div2{
+  width: 50%;
+  height:100%;
+}
+.div2 img{
+  width:100%;
+  height:100%;
+}
+.div1{
+width:50%;
+height: 100%;
+background-color: black;
+color:goldenrod;
+display: flex;
+text-align: center;
+ justify-content: center;
+ flex-direction: column;
+
+}
+.div1 h1{
+  font-family: 'Sofia', cursive;
+  /* font-size: 2em; */
+
+  }
+
+  /* styling shopping component */
+  .shop{
+    width: 100vw;
+    min-height:80vh;
+    background-color: black;
+    font-family: 'Marvel', sans-serif;
+    padding-top: 1%;
+    color:gold;
+    
+  }
+  .shop_items_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height:auto;
+    overflow: auto;
+    
+    
+  }
+.shop_items{
+  height: 13rem;
+  width:13rem;
+  font-size: 1em;
+  padding: 0;
+  margin-top: .3%;
+}
+  .shop_items img{
+    margin:0;
+    margin-bottom:0;
+    display:block;
+    width: 100%;
+    height:70%;
+    border-radius: 5px;
+  }
+  .shop_items p{
+    
+    margin-top:0;
+    margin-bottom:0;
+  }
+
+  .shop_search{
+    display: block;
+    margin: 15px auto;
+    margin-top:0;
+    width: 50%;
+    height:2em;
+    border-radius: 5px;
+  }
+
+.add_to_cart{
+  transition: .500s;
+  background-color: indianred;
+  color: white;
+}
+
+.add_to_cart:hover{
+ cursor: pointer;
+ transform: scale(1.1);
+}
+
+
+  /* checkout */
+  .checkout{
+    width: 100vw;
+    height:80vh;
+    display:flex;
+    justify-content: space-around;
+  }
+
+  .selected_items_list{
+    display:flex;
+    flex-direction: column;
+    justify-content: stretch;
+    justify-content: center;
+    width:30%;
+    border-bottom:1px solid pink;
+  }
+
+  .selected_items_list p{
+    display: inline-block;
+
+  }
+  .selected_items_list img{
+    width:3em;
+    height:3em;
+  }
+
+  .selected_items_each{
+    display:flex;
+    justify-content: space-between;
+  }
+
+.checkout_container{
+  position:relative;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+ flex-direction: column;
+  justify-content: space-evenly;
+}
+ 
+.shopping_cancel_div{
+  display: flex;
+  justify-content: center space-between;
+  align-items: center;
+   
+}
+
+.shopping_cancel{
+margin:0;
+padding:0;
+font-weight: bold;
+margin:auto auto;
+cursor: pointer;
+
+}
+  
+.shopping_cancel:hover{
+  color: red;
+}
+
+
+  .shopping_payment{
+    position:relative;
+    width:25%;
+    border: 1px solid darkcyan;
+    border-radius:5px;
+    height:auto;
+    overflow: auto;
+    
+  }
+
+  .total{
+    display: flex;
+    margin-left: 1rem;
+  
+    
+  }
+  
+  .shopping_cancel_div{
+    width:auto ;
+  }
+
+  .shopping_cancel{
+    margin-bottom: 0.75rem;
+    margin-right: 0.75rem;
+  }
+
+
+
+  /* shopping item */
+
+  .shopitem_container{
+    column-count: 2;
+   height:90vh;
+   text-align: center;
+   background-color: black;
+    font-size: 1.3rem;
+  }
+
+  .shoppingitem_image_div{
+    width:100%;
+    height: 100%;
+
+
+  }
+
+  .shopitem_container img{
+    width: 100%;
+    height:100%;
+
+  }
+
+  .shoppingcheckout_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+     width:100%;
+     height: 100%;
+     color:goldenrod;
+     background-color: black;
+     font-family: 'Marvel', sans-serif;
+  }
+  
+
+  
+  .shoppingcart_inputs input{
+    width:3rem;
+    height:3rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    
+  }
+  .shoppingcart_inputs button {
+    height:3.38rem;
+    width: 7rem;
+    background-color: black;
+    color: white;
+    border:none;
+    
+  }
+  .shoppingcart_inputs button:hover{
+    color:green;
+  }
+  .shoppingcheckout_div button{
+    height: 3.38rem;
+    width: 60%;
+    margin:0 auto;
+    font-family: 'Marvel', sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    
+    
+  }
+
+.shopitem_checkout{
+  margin-left: 0;
+  font-family: 'Marvel', sans-serif;
+  background-color: black;
+  color: chocolate;
+  font-size: 1.5rem;
+}
+
+  /* styling the footer */
+
+  .footer{
+    width: 100%;
+    display:flex;
+    justify-content: space-around;
+    height: 10vh;
+    align-items: center;
+    position: sticky;
+    background-color: black;
+    color:gold;
+    font-family: 'Marvel', sans-serif;
+
+
+  }
+
+
+  /* checkout form */
+ 
+
+ .checkout_form_form{
+  padding-top:1rem;
+  padding-bottom: 1rem;
+   opacity: 1;
+   width:100%;
+   height: auto;
+   background-color:white;
+    border-radius:1.3rem ;
+    font-weight: bold;
+    color: darkslategray;
+    font-family: 'Marvel', sans-serif;
+ }
+
+ .total{
+  font-family: 'Marvel', sans-serif;
+  font-weight: bold;
+  font-size:2rem;
+  color:darkslategray;
+ }
+ .checkout_form_form input{
+  
+  width: 70%;
+  border-radius: .01rem;
+  margin-bottom: .5rem;
+  height: 2rem;
+
+} 
+
+.checkout_form_form button{
+  height:2rem;
+  margin-left: .67rem;
+  
+}
+
+
+/* Media queries for 900px and less in width  for chekout and item detail components */
+
+@media(max-width:1000px){
+  .checkout{
+    display:flex;
+    flex-direction: column;
+    
+  }
+  .checkout div{
+    width: 100%;
+  }
+.selected_items_list{
+   display:block;
+}
+.shopping_cancel_div{
+  display:inline;
+  
+
+
+}
+.selected_items_each{
+  display:block;
+  margin-right: 1rem;
+}
+.selected_items_each p,.selected_items_each img{
+  margin-right:1rem;
+  margin-left: 1rem;
+}
+.check_p{
+  margin-right:1rem;
+  margin-right:1rem;
+}
+
+.selected_items_each p{
+  margin-bottom: 0;
+}
+
+/* styling description page*/
+.shopitem_container{
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.shopitem_checkout{
+  margin-top: 3%;
+}
+.shoppingcheckout_div button{
+  margin-bottom: 3%;
+}
+
+}
+
+@media(max-width:330px){
+  .selected_items_each img{
+    display: none;
+  }
+
+}
+
