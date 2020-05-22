@@ -1,7 +1,5 @@
-import React,{Component} from 'react'
-import Checkout from './Checkout';
-import prettygirl from '../image/blackgirl.jpg';
-import {GrChapterNext} from "react-icons/gr"
+import React,{Component} from 'react';
+import {GrChapterNext} from "react-icons/gr";
 // import prettygirl2 from '../image/slide1.jpg';
 // import prettygirl3 from '../image/slide2.jpg';
 // import prettygirl4 from '../image/slide3.jpg';
@@ -53,13 +51,15 @@ store=()=>{
 // needs some work
 addTocart=(e)=>{
  let multiples=e.target.previousElementSibling.value
- const val = this.state.item.cost
+ let carItem=this.state.item
+ const val = carItem.cost
  let fixed
  if(val[0]==='$'){
 fixed= val.substr(1)}
  else{fixed=val}
- this.state.item.cost=fixed;
- console.log(this.state.item)
+ carItem.cost=fixed
+ this.setState({item:carItem})
+
 this.props.context.addToCart(this.state.item,multiples);
 }
 
@@ -76,7 +76,7 @@ if(!this.state.pic1){
     
     const i=  this.state.curentImage
   const images=[this.state.pic1,this.state.pic2,this.state.pic3]
-  let rnd
+
   console.log(this.state.curentImage)
   if(i<1){
       console.log("if")
@@ -107,7 +107,7 @@ render(){
         <div className="shopitem_container">
            <div className="shoppingitem_image_div">
                
-               <img src={this.state.picture||this.state.firstImage}></img>
+               <img src={this.state.picture||this.state.firstImage} alt="item"></img>
                <GrChapterNext className="next_icon" onClick={this.slideImages}/>
            </div>
            <div className="shoppingcheckout_div">

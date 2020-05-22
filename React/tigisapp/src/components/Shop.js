@@ -1,6 +1,4 @@
 import React,{Component} from 'react';
-import {Redirect} from 'react-router-dom'
-import prettygirl from '../image/blackgirl.jpg';
 
 
 class Shop extends Component{
@@ -51,16 +49,12 @@ seeItemDetails= async(e)=>{
         let name=obj.name
         await localStorage.setItem("name",JSON.stringify(name))
     
-//     return  <Redirect to={{
-//     pathname: '/shopitem',
-//     state: obj,
-// }}
-// />
+
 return this.props.history.push({
     pathname: '/shopitem',
     state: obj
   })
-// return this.props.history.push('/')
+
 }
 
 addItemToCart=(e)=>{
@@ -105,7 +99,7 @@ return(
         <input className="shop_search"placeholder="Search Items...." onChange={this.search}></input>
        {showMainDiv?<div className="shop_items_container">
                 {items.map(thing=><div  cost={thing.cost} quantity={thing.quantity} desc={thing.descripttion} key={thing.id} className="shop_items">
-                     <img src={this.state[thing.name.toLowerCase()+"1"]} onClick={this.seeItemDetails}></img>
+                     <img src={this.state[thing.name.toLowerCase()+"1"]} onClick={this.seeItemDetails} alt="the item"></img>
                      <p className="shop_name">{thing.name}</p>
                      <p>{`$${thing.cost}`}</p>
                      

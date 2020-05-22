@@ -1,8 +1,6 @@
 import React,{Component} from 'react';
-import {MdCancel} from "react-icons/md";
 import {ContextCheckoutForm} from '../App'
 import prettygirl from '../image/blackgirl.jpg';
-import randomId from 'react-id-generator';
 
 
 
@@ -18,35 +16,33 @@ class Checkout extends Component{
     }
   }
 
+  // this function loads data from local storage 
 componentDidMount=async()=>{
   let data= await localStorage.getItem('cart')
   data = JSON.parse(data)
   await this.setState({cart:data})
 }
 
-
+// this function decides of the checkout component gets mounted
 CardPayment=async()=>{
-  console.log("yes")
+  
  await this.setState({
     checkout:true
  })
 
- console.log(this.state.checkout)
+ 
  }
 
 
-// componentDidMount=async()=>{
-//   let items = await JSON.parse(localStorage.getItem('cart'))
-//   this.setState({cart:items})
-// }
+
  showForm=()=>{
    this.setState({showform:true})
  }
 
+
  removeFromCart=(e)=>{
-   console.log(e.target.parentElement.nextElementSibling.innerText)
+ 
    const itemName= e.target.parentElement.nextElementSibling.innerText
- console.log(itemName)
    this.props.context.removeFromCart(itemName)
 
 
@@ -56,8 +52,9 @@ CardPayment=async()=>{
 
 
 render(){
-  // const items = this.props.context.state.cart
-  // console.log(items)
+ 
+
+// Here i extract the costs and cart data from  the  context
   let  items=this.props.context.state.cart
   let cart=items
   let arrayOfCosts=[]
@@ -66,35 +63,14 @@ render(){
          }
     
   
-    // arrayOfCosts=items.map(item=>Number(item.quantity))
-
+ 
   let  totalCost
   if(arrayOfCosts.length){
   totalCost=arrayOfCosts.reduce((accumulator,currentValue)=>{return Number(accumulator)+Number(currentValue)})}
   const product=this.state.product
   product.amount=totalCost
 
-  // const makePayment= (token)=>{
-    
-  //   const body={
-  //     totalCost,
-  //     token,
-  //   product}
-  //   const headers={"Content-Type":"application/json"}
-  //     console.log("fetching")
-  
-  //     return fetch(`http://localhost:5000/makepayment`,{
-  //       method: 'POST',
-  //       headers,
-  //       body: JSON.stringify(body)
-  //     })
-  //     .then(response=>{if (response.status===200){console.log(response.status);return this.props.history.push('/')}
-      
-  //   })
-    
-  //     .catch(err=>console.log(`error at  client ${err}`))
-  //   }
-    
+ 
   
   
 
@@ -108,7 +84,7 @@ if(items&&items.length>0){
                   <div key={item.uniqueId} className="selected_items_each" >
                   <div className="shopping_cancel_div">
                     <p onClick={this.removeFromCart} desc={item.uniqueId} key={item.uniqueId} className="shopping_cancel">Remove</p>
-                    <img src={prettygirl}></img>
+                    <img src={prettygirl} alt="girl "></img>
                   </div>
                     
                     <p className="check_p ">{item.name}</p>

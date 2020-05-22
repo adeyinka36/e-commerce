@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import {FaShoppingCart} from "react-icons/fa";
 import {FaStream} from "react-icons/fa";
 import {FiShoppingCart} from 'react-icons/fi';
 import {Link} from 'react-router-dom';

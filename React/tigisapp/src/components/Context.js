@@ -1,5 +1,4 @@
 import React,{Component } from 'react';
-import prettygirl from '../image/blackgirl.jpg';
 import randomId from 'react-id-generator';
  
 
@@ -15,13 +14,7 @@ export class MyProvider extends Component{
         items:[],
 
         stock:200,
-        // cart:[{name:"Brazillian weave",
-        //         img:prettygirl,
-        //         cost:50,
-        //         quantity:1,
-        //         stock:20,
-        //         description:"Popular weave from brazil3",
-        //         uniqueId:"esnkenklmrre"}],
+        cart:[],
         checkoutFormError:null,
         formDetails:null,
         currentItemName:null
@@ -32,11 +25,11 @@ export class MyProvider extends Component{
 
 addToCart=async (obj,amount=1)=>{
 
- console.log(obj)
+ 
  const itemsInCart=this.state.cart
  const cartWithoutObj= itemsInCart.filter(object=>object.name!==obj.name)
  
- if(cartWithoutObj.length==itemsInCart.length){
+ if(cartWithoutObj.length===itemsInCart.length){
     let itemsForBasket=[];
         obj.quantity=amount
         obj.uniqueId=randomId()
@@ -51,7 +44,7 @@ addToCart=async (obj,amount=1)=>{
    localStorage.setItem("cart",cartJson)
  }
 else{
-    console.log(obj)
+    
    
     const currentObjInCart=itemsInCart.filter(object=>object.name===obj.name)
     const currentObjAmountInCart=currentObjInCart[0].quantity
@@ -79,7 +72,7 @@ componentDidMount(){
 // fillin up the state with details of products from the database
  return fetch(`http://localhost:5000/getproducts`)
  .then(res=>{
-     if(res.status==200){return res.json() }
+     if(res.status===200){return res.json() }
      else{return console.log( `there was an error retrieving initial data form database`)}
      
  })

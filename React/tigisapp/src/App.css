@@ -174,7 +174,7 @@ text-decoration: none;
   font-family: Marvel;
   font-size: 3rem;
   display: flex;
-  justify-content: start;
+  justify-content:flex-start;
   font-weight: bold;
 }
 .wig_laying_container,.eye_lashes_container{

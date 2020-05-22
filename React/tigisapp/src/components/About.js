@@ -1,5 +1,4 @@
 import React from 'react';
-import prettygirl from '../image/blackgirl.jpg';
 import eyelashes from '../image/wig1.jpg';
 import wigs from '../image/wig2.jpg';
 
@@ -13,7 +12,7 @@ const About =()=>{
                <p> Tigi is also has a passion for eyelashes .This led her  to become one of the most reliable and afoordable merhants of eyelashes in london</p>
             </div>
             <div className="about_img">
-               <img src={wigs} alt="prtty girl image"></img>
+               <img src={wigs} alt="prtty girl"></img>
             </div>
           </div>
           <div className="about_middle">
@@ -26,7 +25,7 @@ const About =()=>{
                <h2>Custom made Wigs and Eyelashes</h2>
             </div>
             <div className="about_img">
-               <img src={eyelashes} alt="prtty girl image"></img>
+               <img src={eyelashes} alt="prtty girl "></img>
             </div>
           </div>
           <div className="about_bottom"><h2>YOU ARE BEAUTIFUL</h2></div>
