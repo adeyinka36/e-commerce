@@ -11,6 +11,7 @@ class CheckoutForm extends Component{
             street:"",
             city:"",
             postcode:"",
+            formDeets:null,
             product:this.props.context.state.cart,
              
             showFormError:false,
@@ -38,7 +39,7 @@ sendFormDetails=async(e)=>{
                     city:this.state.city,
                     postcode:this.state.postcode}
 
-    await this.props.context.addFormDetails(formDeets)
+    this.setState({formDeets})
 
     const error=await this.props.context.state.checkoutFormError
     console.log(error)
@@ -112,7 +113,7 @@ sendFormDetails=async(e)=>{
             <div className="stripe">
               {this.state.showForm? <form className="checkout_form_form">
                    {this.state.showFormError?<p>Please complete all fields</p>:null}
-                   <p>Checkout</p>
+                   {/* <p>Checkout</p> */}
                 
                     <div>
                         <input name="firstName" placeholder="First Name" onChange={this.setFormValues}></input><br></br>
@@ -125,7 +126,7 @@ sendFormDetails=async(e)=>{
                         <input name="postcode" placeholder="PostCode" onChange={this.setFormValues}></input>
                     </div>
             
-                    <button onClick={this.sendFormDetails}>Submit</button>
+                    <button onClick={this.sendFormDetails}>Next</button>
                </form>:null}
             {this.state.showCardButton?<StripeCheckout
                  stripeKey="pk_test_XWkzaJCa8Dtw0GljqT4nWEoy00XHCoxlPq"

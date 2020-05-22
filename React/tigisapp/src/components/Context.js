@@ -15,12 +15,13 @@ export class MyProvider extends Component{
         items:[],
 
         stock:200,
-        cart:[{name:"Brazillian weave",
-                img:prettygirl,
-                cost:50,
-                stock:20,
-                description:"Popular weave from brazil3",
-                uniqueId:randomId()}],
+        // cart:[{name:"Brazillian weave",
+        //         img:prettygirl,
+        //         cost:50,
+        //         quantity:1,
+        //         stock:20,
+        //         description:"Popular weave from brazil3",
+        //         uniqueId:"esnkenklmrre"}],
         checkoutFormError:null,
         formDetails:null,
         currentItemName:null
@@ -30,16 +31,47 @@ export class MyProvider extends Component{
   
 
 addToCart=async (obj,amount=1)=>{
-    let itemsForBasket=[]
-    for(let i=0;i<amount;i++){
+
+ console.log(obj)
+ const itemsInCart=this.state.cart
+ const cartWithoutObj= itemsInCart.filter(object=>object.name!==obj.name)
+ 
+ if(cartWithoutObj.length==itemsInCart.length){
+    let itemsForBasket=[];
+        obj.quantity=amount
         obj.uniqueId=randomId()
-      itemsForBasket.push(obj)
-    }
+        itemsForBasket.push(obj)
+       
+    
    await this.setState({
     cart:[...this.state.cart,...itemsForBasket]
    })
 
-   console.log(this.state.cart)
+   let cartJson=JSON.stringify(this.state.cart)
+   localStorage.setItem("cart",cartJson)
+ }
+else{
+    console.log(obj)
+   
+    const currentObjInCart=itemsInCart.filter(object=>object.name===obj.name)
+    const currentObjAmountInCart=currentObjInCart[0].quantity
+
+    let itemsForBasket=[];
+        obj.quantity=Number(amount)+Number(currentObjAmountInCart)
+        itemsForBasket.push(obj)
+       
+    
+   await this.setState({
+    cart:[...cartWithoutObj,...itemsForBasket]
+   })
+
+   let cartJson=JSON.stringify(this.state.cart)
+localStorage.setItem("cart",cartJson)
+}
+
+
+
+   
 }
 
 componentDidMount(){
@@ -67,14 +99,23 @@ updateCurrentItemName=async(name)=>{
    console.log(this.state.currentItemName)
 }
 
-removeFromCart=async(unique)=>{
-    console.log(unique)
-  const updateCart=  this.state.cart.filter(item=>item.uniqueId !==unique )
-  await this.setState({
-      cart:updateCart
-  })
+removeFromCart=async(name)=>{
+    
+  let itemToSubtract=  this.state.cart.filter(item=>item.name ===name )
+  console.log(this.state.cart)
+  const amountToUpdateWith=Number(itemToSubtract[0].quantity)-1
+  const cartWithoutObj= this.state.cart.filter(item=>item.name!==name)
+  itemToSubtract[0].quantity=amountToUpdateWith
+if(amountToUpdateWith>0){
+  await this.setState({cart:[...cartWithoutObj,...itemToSubtract]})
+}
+else{await this.setState({cart:[...cartWithoutObj]})}
+ 
+  
+  let itemsInCart=this.state.cart
+  let cartJson=JSON.stringify(itemsInCart)
+  localStorage.setItem("cart",cartJson)
 
-  console.log (this.state.cart)
 }
 
 
@@ -87,7 +128,7 @@ removeCheckoutFormError=()=>{
 }
 
 addFormDetails=async (obj)=>{
-    console.log(obj)
+
    this.setState({formDetails:obj})
 
     if(!obj.firstName||!obj.lastName||!obj.street||!obj.city||!obj.postcode){

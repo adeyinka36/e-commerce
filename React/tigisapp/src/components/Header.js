@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {FaShoppingCart} from "react-icons/fa";
 import {FaStream} from "react-icons/fa";
+import {FiShoppingCart} from 'react-icons/fi';
 import {Link} from 'react-router-dom';
 import MenuModal from './MenuModal';
 
@@ -31,18 +32,29 @@ renderModal=()=>{
    
 render(){
          
-         let  cartItems=this.props.context.state.cart.length
+         let  cart=this.props.context.state.cart
+         let arrayOfCosts=[]
+         if(cart&&cart.length){
+          arrayOfCosts=cart.map(item=>Number(item.quantity))
+         }
+         
+         let cartItems
+         if(arrayOfCosts.length){
+          cartItems=arrayOfCosts.reduce((cur,acc)=>cur+acc)
+         }
+         else{cartItems=0}
+
     return(
         <div className="header">
         {this.state.shouldModalRender?<MenuModal  cancel={this.renderModal}/>:null}
-           <div>
+           <div className="header_menu_icon">
                 <FaStream onClick={this.renderModal} className="header_menu_button"/>
             </div>
             <div className="logo_div">
                 <p className="logo"><Link to='/'>QUESSENCE</Link></p>
             </div>
             <Link to='/checkout'> <div className="header_cart_div">
-                <FaShoppingCart className="header_cart"/>
+                <FiShoppingCart className="header_cart"/>
                 <p className="header_cart_items">{cartItems>0?cartItems:null}</p>
                 
             </div></Link>

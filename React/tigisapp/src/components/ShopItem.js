@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import Checkout from './Checkout';
 import prettygirl from '../image/blackgirl.jpg';
+import {GrChapterNext} from "react-icons/gr"
 // import prettygirl2 from '../image/slide1.jpg';
 // import prettygirl3 from '../image/slide2.jpg';
 // import prettygirl4 from '../image/slide3.jpg';
@@ -52,13 +53,20 @@ store=()=>{
 // needs some work
 addTocart=(e)=>{
  let multiples=e.target.previousElementSibling.value
-this.props.context.addToCart(this.state.item,multiples)
+ const val = this.state.item.cost
+ let fixed
+ if(val[0]==='$'){
+fixed= val.substr(1)}
+ else{fixed=val}
+ this.state.item.cost=fixed;
+ console.log(this.state.item)
+this.props.context.addToCart(this.state.item,multiples);
 }
 
 
 slideImages=async(e)=>{
 if(!this.state.pic1){
-    const name= e.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText.toLowerCase()
+    const name= e.target.parentElement.nextElementSibling.firstElementChild.nextElementSibling.id.toLowerCase()
    await import(`../image/${name}1.jpg`)
     .then(pic=>{console.log(pic);return this.setState({pic1:pic.default})})
   await  import(`../image/${name}2.jpg`)
@@ -98,21 +106,24 @@ render(){
 
         <div className="shopitem_container">
            <div className="shoppingitem_image_div">
+               
                <img src={this.state.picture||this.state.firstImage}></img>
+               <GrChapterNext className="next_icon" onClick={this.slideImages}/>
            </div>
            <div className="shoppingcheckout_div">
-           <button onClick={this.store} className="back_to_store">Back to Store</button>
-                <p>{currentItem[0].name}</p>
-                <p>{currentItem[0].description}</p>
-                <p>{currentItem.length+" in stock"}</p>
+           {/* <button onClick={this.store} className="back_to_store">Back to Store</button> */}
+                 <h1>Product Details:</h1>
+                <p id={currentItem[0].name}><span>Name:</span> {currentItem[0].name}</p>
+                <p><span>Description:</span> {currentItem[0].description}</p>
+                <p><span>Left in stock:</span> {currentItem.length}</p>
             
                 
                 
-                <button onClick={this.slideImages}>Next Image</button>
+                {/* <button onClick={this.slideImages}>Next Image</button> */}
         
                 <div className="shoppingcart_inputs">
                     <input defaultValue={1}></input>
-                    <button onClick={this.addTocart}>Add to cart</button>
+                    <button className="addtocart_button"onClick={this.addTocart}>Add to cart</button>
                     
                     
                 </div>

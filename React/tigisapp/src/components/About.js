@@ -1,20 +1,35 @@
 import React from 'react';
 import prettygirl from '../image/blackgirl.jpg';
+import eyelashes from '../image/wig1.jpg';
+import wigs from '../image/wig2.jpg';
 
 const About =()=>{
     return(
         <div className="about_container">
-            <div className="div1">
-               <h1>Queen Essence</h1>
-               <p> Daisha is only 23 years old, who specializes in natural lace wigs and has mastered making wigs on the sewing machine. She is known for her flawless customizing of the lace hairline and her signature curls.
-
-Daisha is for sure the one to make any wig look super natural with just some of her TLC. Daisha is also a celebrity wig maker and has worked with a few women in that industry. A lot of people make wigs, but she make crowns.
-
-</p>
+          <div className="about_top">
+            <div className="about_text">
+               <h1>WHO AM I?</h1>
+               <p> Tigi is a  20 years old, who specializes in natural lace wigs and has mastered making wigs on the sewing machine. She is known for her flawless customizing of the lace hairline and her signature curls.</p>
+               <p> Tigi is also has a passion for eyelashes .This led her  to become one of the most reliable and afoordable merhants of eyelashes in london</p>
             </div>
-            <div className="div2">
-               <img src={prettygirl} alt="prtty girl image"></img>
+            <div className="about_img">
+               <img src={wigs} alt="prtty girl image"></img>
             </div>
+          </div>
+          <div className="about_middle">
+            <div className="about_text">
+               <h1>WHAT I DO</h1>
+               <p> In a nutshell, if you need to buy quality eweaves, wigs or eyelashes, you have come to the perfect place. Here is a list of some of my services:</p>
+               <h2>Wig Installation</h2>
+               <h2>Eyelashes Installation</h2>
+               <h2>Sale of Wigs and Eyelashes</h2>
+               <h2>Custom made Wigs and Eyelashes</h2>
+            </div>
+            <div className="about_img">
+               <img src={eyelashes} alt="prtty girl image"></img>
+            </div>
+          </div>
+          <div className="about_bottom"><h2>YOU ARE BEAUTIFUL</h2></div>
 
         </div>
 

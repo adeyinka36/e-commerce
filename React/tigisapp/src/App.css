@@ -10,19 +10,21 @@ body{
 .header{
   display: flex;
   width: 100vw;
-  height:10vh;
-  background-color: pink;
+  height:15vh;
+  background-color:black;
   justify-content: space-around;
   align-items: center;
   position:sticky;
   top:0;
+  z-index: 1;
 }
 
 .logo a{
-  font-family: 'Bowlby One SC', cursive;
-  color:goldenrod;
+  font-family: 'Galada', cursive;
+  color:pink;
   font-size: 2rem;
   text-decoration: none;
+  letter-spacing: 2rem;
 }
 
 .check_p{
@@ -83,7 +85,7 @@ button:hover{
 .menu_items p{
   display: block;
   padding:2rem;
-  color:darkorange;
+  color:white;
 }
 
 
@@ -92,7 +94,7 @@ text-decoration: none;
 }
 
 .menu_items a:hover{
-  border:1px solid gold;
+  border:1.5px solid lightpink
 }
 
 
@@ -100,7 +102,7 @@ text-decoration: none;
 
 .modal_inner_container button{
   background-color:rgb(0,0,0,.2);
-  color: darkorange;
+  color: white;
   border: none;
 }
 
@@ -109,37 +111,142 @@ text-decoration: none;
 
 /* styling images in home page */
 .home_div{
-  background-color: palevioletred;
+  background-color:white;
 }
 .home_div img{
   width:100%;
 }
+.home_back_container{
+ background-color: black;
+  height:60vh;
+  
+  
+}
+.main_background_pic{
+  width:100%;
+  max-height: 100%;
+ 
+  animation: home 6s infinite alternate forwards ;
+  z-index: 0;
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
+  
+}
+.main_background_pic h1{
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 5rem;
+  letter-spacing:.5rem;
+  color:pink;
+  
+}
 
+@keyframes home{
+  0%{
+     opacity:0;
+     transform: scale(1);
+  }
+  100%{
+   opacity: 1;
+   transform:scale(.95)
+  }
+}
+.home_div h1{
+  margin-top:0;
+}
 .home_div p{
  font-family: 'Bad Script', cursive;
  
  font-size: 50px;
 }
 
+.services{
+  width:100%;
+  height:80vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  margin-top: 3rem;
+  
+}
+.services p{
+  font-family: Marvel;
+  font-size: 3rem;
+  display: flex;
+  justify-content: start;
+  font-weight: bold;
+}
+.wig_laying_container,.eye_lashes_container{
+  height:100%;
+  width:45%;
+  
+}
+.wig_laying_pic{
+  background-image:url('./image/wig2.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+.eye_lashes_pic{
+  background-image:url('./image/wig1.jpg');
+  background-size: cover;
+  background-position: center;
+  height:100%;
+}
+.wig_laying_pic,.eye_lashes_pic{
+  height:70%;
+  
+  width:100%;
+  transition: transform ease-in .250s ;
+  margin-bottom: 1.5rem;
+}
+.wig_laying_pic:hover{
+  background-image: url('./image/japan2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform:scale(1.1);
+  cursor: pointer;
+}
+.eye_lashes_pic:hover{
+  background-image: url('./image/japan2.jpg');
+  transform: scale(1.1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  
+
+}
+
+.wig_laying_container p,.eye_lashes_container p{
+  font-size: 1.2rem;
+  margin:0;
+}
 
 .service_pic2{
+  display: flex;
+  margin-top:2rem;
   width: 100%;
-  height:100vh;
+  height:90vh;
   background-image: url('./image/blackgirl.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   transition: 5s;
+  align-items: flex-start;
+  
 
-  animation: morph 30s ease-in-out 0s infinite alternate-reverse forwards;
+  animation: morph 10s ease-in-out 0s infinite alternate-reverse forwards;
 
 }
 
 @keyframes morph{
-  0%{background-image: url('./image/blackgirl.jpg');}
-  50%{background-image: url('./image/Brazillian3.jpg');}
-  100%{background-image: url('./image/Brazillian2.jpg');}
+  0%{background-image: url('./image/morph1.jpg');}
+  50%{background-image: url('./image/morph2.jpg');}
+  100%{background-image: url('./image/morph3.jpg');}
 
 }
 
@@ -147,7 +254,7 @@ text-decoration: none;
 .main_background_pic{
   width: 100%;
   height: 100vh;
-  background-image:url('./image/blackgirl.jpg');
+  background-image:url('./image/japan2.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -161,14 +268,15 @@ text-decoration: none;
   font-weight: bold;
   font-size: 2rem;
   display: inline-block;
-  color: lightpink;
-  padding-top:20%;
-  margin-top: 0;
+
+
+
 
 }
 .browse_link{
   text-decoration: none;
-  color: goldenrod ;
+  color: black
+
 }
 /* styling modal button */
 .menu_button{
@@ -179,7 +287,7 @@ text-decoration: none;
 }
 .menu_button:hover{
   cursor: pointer;
-  border: 1px solid gold;
+  border: 1.5px solid lightpink;
  
 }
 
@@ -192,9 +300,9 @@ text-decoration: none;
 .header_cart_div{
   width: 5rem;
   height:100%;
- display: flex;
- justify-content: center;
- align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 
@@ -207,78 +315,90 @@ text-decoration: none;
   position: absolute;
   top:.5rem;
   left: 2.5rem;
-  color:black;
-  background-color:lightpink;
-  border-radius: 40%;
+  color:lightpink;
+  background-color:rgb(0,0,0,0);
+  border-radius: 10%;
   
+}
+.header_menu_button{
+  color:lightpink;
+  width: 2rem;
+  height: 2rem;
 }
 .header_menu_button:hover{
   transition: 2s;
+  
   transform:rotate(360deg);
 }
 
 
 /* styling the about component */
 .about_container{
-  display:flex;
-  flex-direction: row;
-  height: 90vh;
-  width:100%;
-  font-family: 'Marvel', sans-serif;
-  background-color:black;
-  font-size: 1.3em;
+  width: 100%;
+  
 
 }
-.div2{
+.about_top,.about_middle{
+  display: flex;
+  height:100vh;
+}
+.about_middle{
+  flex-direction: row-reverse;
+}
+.about_img,.about_text{
   width: 50%;
   height:100%;
 }
-.div2 img{
-  width:100%;
-  height:100%;
+.about_container img{
+  width: 100%;
+  height: 100%
 }
-.div1{
-width:50%;
-height: 100%;
-background-color: black;
-color:goldenrod;
-display: flex;
-text-align: center;
- justify-content: center;
- flex-direction: column;
+.about_text {
+  font-family:Marvel;
+}
+.about_text p{
+  font-size:2rem ;
+  
+}
+.about_bottom{
+  background-color: white;
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+}
+.about_bottom h2{
+  font-family: marvel;
+  letter-spacing: 2rem;
 
 }
-.div1 h1{
-  font-family: 'Sofia', cursive;
-  /* font-size: 2em; */
-
-  }
-
   /* styling shopping component */
+  
   .shop{
-    width: 100vw;
+    background-color:white;
     min-height:80vh;
-    background-color: black;
     font-family: 'Marvel', sans-serif;
     padding-top: 1%;
-    color:gold;
-    
+    color:black;
+    font-size: 1.5rem;
+    overflow-x: auto;
   }
   .shop_items_container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    height:auto;
+    height:100vh;
     overflow: auto;
     
     
   }
 .shop_items{
-  height: 13rem;
-  width:13rem;
+  height: 35rem;
+  width:22rem;
   font-size: 1em;
   padding: 0;
   margin-top: .3%;
+  
 }
   .shop_items img{
     margin:0;
@@ -286,7 +406,12 @@ text-align: center;
     display:block;
     width: 100%;
     height:70%;
-    border-radius: 5px;
+    border-radius: 7px;
+    transition: .3s;
+  }
+  .shop_items img:hover{
+    opacity:.8;
+    cursor: pointer;
   }
   .shop_items p{
     
@@ -296,40 +421,60 @@ text-align: center;
 
   .shop_search{
     display: block;
-    margin: 15px auto;
+    margin: 2rem auto;
     margin-top:0;
-    width: 50%;
-    height:2em;
+    width: 30%;
+    height:2.5rem;
     border-radius: 5px;
+    border:2px solid black;
+    
   }
 
 .add_to_cart{
   transition: .500s;
-  background-color: indianred;
-  color: white;
+  background-color:white;
+  color: black;
+  transition:  .5s ;
+  font-size: 2rem;
+  width:100%;
+
 }
 
 .add_to_cart:hover{
  cursor: pointer;
- transform: scale(1.1);
+ transform:scale(1.2);
+ border:2px solid black;
+ color:palevioletred;
+ 
+}
+.shop_name{
+  font-family: Marverl;
+  font-weight: bold;
+  letter-spacing: 1rem;
 }
 
 
   /* checkout */
   .checkout{
     width: 100vw;
-    height:80vh;
+    min-height: 70vh;
+    height:100%;
     display:flex;
-    justify-content: space-around;
+    justify-content:space-between;
+    overflow-y: auto;
+    
   }
 
   .selected_items_list{
     display:flex;
+    overflow-y: auto ;
     flex-direction: column;
     justify-content: stretch;
     justify-content: center;
-    width:30%;
+    width:70%;
     border-bottom:1px solid pink;
+    
+    
   }
 
   .selected_items_list p{
@@ -342,8 +487,11 @@ text-align: center;
   }
 
   .selected_items_each{
+    height:auto;
     display:flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
   }
 
 .checkout_container{
@@ -356,10 +504,26 @@ text-align: center;
 }
  
 .shopping_cancel_div{
+ 
   display: flex;
   justify-content: center space-between;
   align-items: center;
    
+}
+.shopping_cancel_div img{
+  height:10rem;
+  width:10rem;
+}
+.shopping_cancel_div p{
+  color:lightpink;
+  font-size: 1rem;
+  margin-bottom: 4rem;
+}
+
+.check_p{
+  font-size: 1.5rem;
+
+
 }
 
 .shopping_cancel{
@@ -381,7 +545,7 @@ cursor: pointer;
     width:25%;
     border: 1px solid darkcyan;
     border-radius:5px;
-    height:auto;
+    height:35rem;
     overflow: auto;
     
   }
@@ -402,16 +566,26 @@ cursor: pointer;
     margin-right: 0.75rem;
   }
 
+.empty_cart{
+  height:80vh;
+  font-family: Marvel;
+  font-size: 4rem;
+  letter-spacing: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
   /* shopping item */
 
   .shopitem_container{
     column-count: 2;
-   height:90vh;
+   height:auto;
    text-align: center;
-   background-color: black;
+   background-color: white;
     font-size: 1.3rem;
+    
   }
 
   .shoppingitem_image_div{
@@ -423,18 +597,18 @@ cursor: pointer;
 
   .shopitem_container img{
     width: 100%;
-    height:100%;
+    height:100vh;
 
   }
 
   .shoppingcheckout_div{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: flex-start; */
+    padding-top:15%;
      width:100%;
      height: 100%;
-     color:goldenrod;
-     background-color: black;
+     background-color:white;
      font-family: 'Marvel', sans-serif;
   }
   
@@ -449,13 +623,21 @@ cursor: pointer;
     
   }
   .shoppingcart_inputs button {
+    
     height:3.38rem;
-    width: 7rem;
-    background-color: black;
-    color: white;
+    
+    background-color:white;
     border:none;
+
     
   }
+  .shoppingcart_inputs{
+    display: inline-block;
+    width: 50%;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+  }
+  
   .shoppingcart_inputs button:hover{
     color:green;
   }
@@ -473,22 +655,44 @@ cursor: pointer;
 .shopitem_checkout{
   margin-left: 0;
   font-family: 'Marvel', sans-serif;
-  background-color: black;
-  color: chocolate;
+  background-color:white;
+  color:black;
   font-size: 1.5rem;
+  border: .5px solid lightpink;
+  transition:.2s;
 }
+.shopitem_checkout:hover{
+ cursor: pointer;
+ border:1px solid black;
+ transform: scale(1.1);
+ color:black;
+}
+.next_icon{
+  height:4rem;
+  width: 4rem;
+  transition:.2s
 
+}
+.next_icon:hover{
+  cursor: pointer;
+  color: lightpink;
+  transform: scale(1.1);
+}
+span{
+  font-weight: bold;
+}
   /* styling the footer */
 
   .footer{
     width: 100%;
     display:flex;
     justify-content: space-around;
-    height: 10vh;
+    height: 20vh;
+    font-size: 2rem;
     align-items: center;
     position: sticky;
     background-color: black;
-    color:gold;
+    color:lightpink;
     font-family: 'Marvel', sans-serif;
 
 
@@ -515,7 +719,7 @@ cursor: pointer;
   font-family: 'Marvel', sans-serif;
   font-weight: bold;
   font-size:2rem;
-  color:darkslategray;
+  color:black;
  }
  .checkout_form_form input{
   
@@ -527,12 +731,80 @@ cursor: pointer;
 } 
 
 .checkout_form_form button{
-  height:2rem;
+  height:3rem;
+  width: 4rem;
   margin-left: .67rem;
+  background-color: black;
+  color:white;
   
+}
+.checkout_form_form button:hover{
+  color:lightpink;
+}
+
+/* styling FAQ */
+
+.ques{
+  display: inline-block;
+  width:20%;
+  margin-bottom:0;
+  font-weight: bold;
+  font-size: 2rem;
+  color: black;
+  
+}
+     
+.faq_container{
+  font-family: 'Marvel', sans-serif;
+  height: auto;
+  font-size: 1.4rem;
+  height:80vh;
+}
+.faq_container button{
+  width: 3rem;
+  height:3rem;
+  margin-right:1rem;
+  font-weight: bold;
+  transition:.5s;
+  font-size:2rem;
+  border-radius: .2rem;
+}
+
+.faq_container button:hover{
+  transform:rotate(9deg);
+  
+  color: black;
+}
+.faq_ans{
+  display: inline-block;
+  width:20%;
+  transition: opacity ease-in .5s  ;
+  margin-top: .5rem;
+  margin-bottom: 0;
+  opacity:0;
 }
 
 
+
+/* styling error page */
+.errpage{
+  background-color: lightpink;
+  height: 80vh;
+  text-align: center;
+  padding:auto auto;
+
+  
+}
+
+.errpage h1{
+  font-size: 10rem;
+  color: cadetblue;
+  margin-top:0;
+}
+
+.errpage h2, .errpage p{
+  color: darkslategrey;
+}
 /* Media queries for 900px and less in width  for chekout and item detail components */
 
 @media(max-width:1000px){
@@ -552,6 +824,9 @@ cursor: pointer;
   
 
 
+}
+.shopping_payment{
+  height: auto;
 }
 .selected_items_each{
   display:block;
@@ -585,10 +860,109 @@ cursor: pointer;
 
 }
 
-@media(max-width:330px){
-  .selected_items_each img{
-    display: none;
+@media(max-width:768px){
+  .check_p{
+    font-size: 1rem;
+    width:4rem;
+    
   }
+  .shopping_cancel_div{
+    max-width: 30%;
+    width:30%;
+    display: flex;
+  
+  }
+  .shopping_cancel_div img{
+    width:6rem;
+    height:6rem;
+
+  }
+  
+  .selected_items_each{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .shopping_cancel{
+   padding-bottom: 2rem;
+  }
+  .checkout{
+    margin-top: 1rem;
+  }
+}
+
+@media(max-width:768px){
+  .about_container{
+    width:90vw;
+  }
+
+  .selected_items_each img{
+     display: none;
+   }
+   .shopping_cancel{
+     padding-top:40%;
+   }
+.logo_div a{
+  font-size:1rem;
+  letter-spacing: .5rem;
+}
+
+.main_background_pic h1{
+  font-size: 1.5rem;
+  color:black;
+}
+.about_top,.about_text,.about_img{
+  width: 100%;
+}
+.about_text h2,.about_text p {
+  font-size: 1.5rem;
+}
+.about_top,.about_middle{
+  display: flex;
+  flex-direction: column;
+  padding-left:1rem;
+
+}
+.about_top{
+  height:65%;
+}
+
+.about_bottom h2{
+  font-size: 1rem;
+  letter-spacing: .5rem;
+}
+.browse_link{
+  font-size: 2rem;
+}
+.services{
+  flex-direction: column;
+}
+.eye_lashes_container,.wig_laying_container{
+  width: 100%;
+  
+}
+/* shop */
+.shop_search{
+  width:80%;
+}
+
+/* faq */
+.ques{
+  width:20rem;
+}
+.faq_ans{
+  display: block;
+  width:100%;
+}
+/* footer */
+.footer{
+  width: 100vw;
+  font-size: 1.5rem;
+}
+
+
+
 
 }
 

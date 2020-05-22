@@ -15,7 +15,7 @@ const MenuModal=(props)=>{
                 <NavLink to="/"><p>Home</p></NavLink>
                 <NavLink to="/about"><p>About</p></NavLink>
                 <NavLink to="/shop"><p>Shop</p></NavLink>
-                <NavLink to="/"><p>FAQ</p></NavLink>
+                <NavLink to="/faq"><p>FAQ</p></NavLink>
             </div>
         </div>
         </div>

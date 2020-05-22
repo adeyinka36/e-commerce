@@ -69,7 +69,9 @@ addItemToCart=(e)=>{
     const obj={name:e.target.previousElementSibling.previousElementSibling.innerText,
                img:e.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText,
                cost:Number(e.target.parentElement.getAttribute("cost")),
-               description:e.target.parentElement.getAttribute("key")}
+               description:e.target.parentElement.getAttribute("description"),
+               id:e.target.parentElement.getAttribute("key"),
+               quantity:e.target.parentElement.getAttribute("quantity")}
         
 
     console.log("working")
@@ -98,12 +100,13 @@ if(items){
     
 return(
     <div>
+     
       <div className="shop">
         <input className="shop_search"placeholder="Search Items...." onChange={this.search}></input>
        {showMainDiv?<div className="shop_items_container">
-                {items.map(thing=><div  cost={thing.cost} key={thing.description} className="shop_items">
+                {items.map(thing=><div  cost={thing.cost} quantity={thing.quantity} desc={thing.descripttion} key={thing.id} className="shop_items">
                      <img src={this.state[thing.name.toLowerCase()+"1"]} onClick={this.seeItemDetails}></img>
-                     <p>{thing.name}</p>
+                     <p className="shop_name">{thing.name}</p>
                      <p>{`$${thing.cost}`}</p>
                      
                      <p onClick={this.addItemToCart} className="add_to_cart">Add to cart</p>

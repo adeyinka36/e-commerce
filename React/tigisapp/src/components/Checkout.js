@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {MdCancel} from "react-icons/md";
 import {ContextCheckoutForm} from '../App'
 import prettygirl from '../image/blackgirl.jpg';
+import randomId from 'react-id-generator';
 
 
 
@@ -12,11 +13,16 @@ class Checkout extends Component{
       allfields:false,
       showform:false,
       product:{price:200,name:"Brazil hair"},
-      proceed:false
+      proceed:false,
+      cart:null
     }
   }
 
-
+componentDidMount=async()=>{
+  let data= await localStorage.getItem('cart')
+  data = JSON.parse(data)
+  await this.setState({cart:data})
+}
 
 
 CardPayment=async()=>{
@@ -29,13 +35,17 @@ CardPayment=async()=>{
  }
 
 
-
+// componentDidMount=async()=>{
+//   let items = await JSON.parse(localStorage.getItem('cart'))
+//   this.setState({cart:items})
+// }
  showForm=()=>{
    this.setState({showform:true})
  }
 
  removeFromCart=(e)=>{
-   const itemName= e.target.getAttribute("desc");
+   console.log(e.target.parentElement.nextElementSibling.innerText)
+   const itemName= e.target.parentElement.nextElementSibling.innerText
  console.log(itemName)
    this.props.context.removeFromCart(itemName)
 
@@ -46,9 +56,18 @@ CardPayment=async()=>{
 
 
 render(){
-  const items = this.props.context.state.cart
-  console.log(items)
-  const arrayOfCosts= items.map(e=>e.cost)
+  // const items = this.props.context.state.cart
+  // console.log(items)
+  let  items=this.props.context.state.cart
+  let cart=items
+  let arrayOfCosts=[]
+         if(cart&&cart.length){
+          arrayOfCosts=items.map(e=>Number(e.cost)*Number(e.quantity))
+         }
+    
+  
+    // arrayOfCosts=items.map(item=>Number(item.quantity))
+
   let  totalCost
   if(arrayOfCosts.length){
   totalCost=arrayOfCosts.reduce((accumulator,currentValue)=>{return Number(accumulator)+Number(currentValue)})}
@@ -79,21 +98,23 @@ render(){
   
   
 
-if(items.length>0){
+if(items&&items.length>0){
     return(
         
-        <div className="checkout">
+        <div className="checkout" >
             
-            <div className="selected_items_list">
+            <div className="selected_items_list" >
               {items.map(item=>
-                  <div key={item.description} className="selected_items_each" >
+                  <div key={item.uniqueId} className="selected_items_each" >
                   <div className="shopping_cancel_div">
-                    <p onClick={this.removeFromCart} desc={item.uniqueId} className="shopping_cancel">X</p>
+                    <p onClick={this.removeFromCart} desc={item.uniqueId} key={item.uniqueId} className="shopping_cancel">Remove</p>
                     <img src={prettygirl}></img>
                   </div>
                     
                     <p className="check_p ">{item.name}</p>
                     <p className="check_p ">{`$${item.cost}`}</p>
+                    <p className="check_p ">{`${item.quantity}`}</p>
+      
                     {/* <p>{item.amount}</p> */}
                    
                   </div>
@@ -117,7 +138,7 @@ if(items.length>0){
               }
   else{
     return(
-      <div>Your Cart is empty Please do some shopping</div>
+      <div className="empty_cart">YOUR CART IS EMPTY</div>
     )
   }
 }
