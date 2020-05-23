@@ -229,7 +229,7 @@ text-decoration: none;
   display: flex;
   margin-top:2rem;
   width: 100%;
-  height:90vh;
+  height:130vh;
   background-image: url('./image/blackgirl.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -244,9 +244,18 @@ text-decoration: none;
 }
 
 @keyframes morph{
-  0%{background-image: url('./image/morph1.jpg');}
-  50%{background-image: url('./image/morph2.jpg');}
-  100%{background-image: url('./image/hair-backview.jpg');}
+  0%{ 
+    background-image: url('./image/morph1.jpg');
+     background-size: cover;
+    background-position: center; }
+  50%{background-image: url('./image/morph2.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  100%{background-image: url('./image/hair-backview.jpg');
+    background-size: cover;
+    background-position: center;
+  }
 
 }
 
@@ -687,8 +696,8 @@ span{
     width: 100%;
     display:flex;
     justify-content: space-around;
-    height: 20vh;
-    font-size: 2rem;
+    height: 10vh;
+    font-size: 1.5rem;
     align-items: center;
     position: sticky;
     background-color: black;

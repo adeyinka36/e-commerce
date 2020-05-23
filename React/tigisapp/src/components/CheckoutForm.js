@@ -71,12 +71,15 @@ sendFormDetails=async(e)=>{
               body: JSON.stringify(body)
             })
             .then(res=>{if(res.status===200){
-                console.log("yaii")
-                return window.location = "http://localhost:3001/"
+                
+                return window.location = "http://localhost:3000/"
                 
             }})
               
-            .catch(err=>console.log(`error at  client ${err}`))
+            .catch(err=>{
+              
+              alert("Payment Unsucessful")
+              console.log(`error at  client ${err}`)})
           }
           
         
