@@ -1,6 +1,6 @@
 import React from 'react';
 import eyelashes from '../image/wig1.jpg';
-import wigs from '../image/wig2.jpg';
+import wigs from '../image/happy-hair.jpg';
 
 const About =()=>{
     return(

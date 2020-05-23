@@ -1,9 +1,6 @@
 import React,{Component} from 'react';
 import {GrChapterNext} from "react-icons/gr";
-// import prettygirl2 from '../image/slide1.jpg';
-// import prettygirl3 from '../image/slide2.jpg';
-// import prettygirl4 from '../image/slide3.jpg';
-// import prettygirl5 from '../image/slide4.jpg';
+
 
 
 

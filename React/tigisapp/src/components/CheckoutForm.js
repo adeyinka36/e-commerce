@@ -32,7 +32,6 @@ this.setState({
 
 sendFormDetails=async(e)=>{
     e.preventDefault()
-    console.log("sending deets")
     const formDeets={firstName:this.state.firstName,
                      lastName:this.state.lastName,
                      street:this.state.street,
@@ -42,7 +41,6 @@ sendFormDetails=async(e)=>{
     this.setState({formDeets})
 
     const error=await this.props.context.state.checkoutFormError
-    console.log(error)
     
     if(!error){
       this.setState({showCardButton:true,showForm:false})
@@ -52,34 +50,10 @@ sendFormDetails=async(e)=>{
         this.setState({showFormError:true})
     }
 }
-// makePayment=()=>{
-//     const product=this.state.product
-//         const {firstName,lastName,street,city,postcode}=this.state
-
-//         const makePayment= (token)=>{
-//           const body={
-//             firstName,lastName,street,city,postcode,
-//             token,
-//           product}
-//           const headers={"Content-Type":"application/json"}
-//             console.log("fetching")
-        
-//             return fetch(`http://localhost:5000/makepayment`,{
-//               method: 'POST',
-//               headers,
-//               body: JSON.stringify(body)
-//             })
-//             .then(res=>{if(res.status===200){
-//                 return this.props.history.push('/')
-//             }})
-          
-//             .catch(err=>console.log(`error at  client ${err}`))
-//           }
-          
-// }
 
     render(){
 
+      // here i extract data and send the form details to the back-end for processing
         const product=this.state.product
         const {firstName,lastName,street,city,postcode}=this.state
 

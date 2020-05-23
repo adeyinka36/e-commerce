@@ -137,7 +137,7 @@ text-decoration: none;
   font-family: 'Alfa Slab One', cursive;
   font-size: 5rem;
   letter-spacing:.5rem;
-  color:pink;
+  color:black;
   
 }
 
@@ -183,7 +183,7 @@ text-decoration: none;
   
 }
 .wig_laying_pic{
-  background-image:url('./image/wig2.jpg');
+  background-image:url('./image/happy-hair.jpg');
   background-size: cover;
   background-position: center;
   height: 100%;
@@ -202,7 +202,7 @@ text-decoration: none;
   margin-bottom: 1.5rem;
 }
 .wig_laying_pic:hover{
-  background-image: url('./image/japan2.jpg');
+  background-image: url('./image/happy-hair.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -210,7 +210,7 @@ text-decoration: none;
   cursor: pointer;
 }
 .eye_lashes_pic:hover{
-  background-image: url('./image/japan2.jpg');
+  background-image: url('./image/hair-thumbnail.jpg');
   transform: scale(1.1);
   background-size: cover;
   background-position: center;
@@ -246,7 +246,7 @@ text-decoration: none;
 @keyframes morph{
   0%{background-image: url('./image/morph1.jpg');}
   50%{background-image: url('./image/morph2.jpg');}
-  100%{background-image: url('./image/morph3.jpg');}
+  100%{background-image: url('./image/hair-backview.jpg');}
 
 }
 
@@ -254,7 +254,7 @@ text-decoration: none;
 .main_background_pic{
   width: 100%;
   height: 100vh;
-  background-image:url('./image/japan2.jpg');
+  background-image:url('./image/flower.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
